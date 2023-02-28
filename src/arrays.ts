@@ -36,12 +36,10 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return stringsToIntegers(
-        amounts.map((num: string): string =>
-            // eslint-disable-next-line no-self-assign
-            amounts[0] === "$" ? (num = num.substring(1)) : num
-        )
+    const ams = amounts.map((num: string): string =>
+        num[0] === "$" ? num.substring(1) : num
     );
+    return stringsToIntegers(ams);
 };
 
 /**
@@ -50,14 +48,13 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return messages
-        .filter((str: string): boolean => str[str.length - 1] === "?")
-        .map((str: string): string =>
-            // eslint-disable-next-line prettier/prettier, no-self-assign
-            str[str.length - 1] === "!"
-                ? (str = str.toUpperCase())
-                : (str = str)
-        );
+    const msg = messages.filter(
+        (str: string): boolean => str[str.length - 1] !== "?"
+    );
+    return msg.map((str: string): string =>
+        // eslint-disable-next-line prettier/prettier, no-self-assign
+        str[str.length - 1] === "!" ? (str = str.toUpperCase()) : (str = str)
+    );
 };
 
 /**
@@ -110,10 +107,20 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    let i = values.findIndex((val: number): boolean => val < 0);
-    if (i === -1) i = values.length - 1;
-    const sum = values
-        .splice(0, i)
-        .reduce((count: number, adds: number): number => (count += adds), 0);
-    return values.splice(i, 0, sum);
+    const i = values.findIndex((val: number): boolean => val < 0);
+    if (i === -1) {
+        const sum = values.reduce(
+            (count: number, adds: number): number => (count += adds),
+            0
+        );
+        return [...values, sum];
+    }
+    let newVal = values.slice(0, i);
+    const sum = newVal.reduce(
+        (count: number, adds: number): number => (count += adds),
+        0
+    );
+    newVal = [...values];
+    newVal.splice(i + 1, 0, sum);
+    return newVal;
 }
