@@ -52,8 +52,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
         (str: string): boolean => str[str.length - 1] !== "?"
     );
     return msg.map((str: string): string =>
-        // eslint-disable-next-line prettier/prettier, no-self-assign
-        str[str.length - 1] === "!" ? (str = str.toUpperCase()) : (str = str)
+        str[str.length - 1] === "!" ? (str = str.toUpperCase()) : str
     );
 };
 
@@ -64,7 +63,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
 export function countShortWords(words: string[]): number {
     return words
         .filter((word: string): boolean => word.length < 4)
-        .reduce((count: number, word: string): number => (count += 1), 0);
+        .reduce((count: number): number => (count += 1), 0);
 }
 /**
  * Consumes an array of colors (e.g., 'red', 'purple') and returns true if ALL
