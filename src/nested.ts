@@ -89,7 +89,19 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    const pert = questions.map(
+        (que: Question) =>
+            que.id +
+            "," +
+            que.name +
+            "," +
+            que.options.length +
+            "," +
+            que.points +
+            "," +
+            que.published
+    );
+    return "id,name,options,points,published\n" + pert.join("\n");
 }
 
 /**
