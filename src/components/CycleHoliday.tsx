@@ -32,19 +32,7 @@ export function CycleHoliday(): JSX.Element {
             <Button onClick={byYear}>Advance by Year</Button>
             <span>
                 Holiday: (.*)/i
-                {holiday === "🍇" ? (
-                    <p>Anthesteria</p>
-                ) : holiday === "🎄" ? (
-                    <p>Christmas</p>
-                ) : holiday === "🎃" ? (
-                    <p>Halloween</p>
-                ) : holiday === "🎆" ? (
-                    <p>Independence Day</p>
-                ) : holiday === "🎊" ? (
-                    <p>New Years Day</p>
-                ) : (
-                    <></>
-                )}
+                {holiday}
             </span>
         </div>
     );
