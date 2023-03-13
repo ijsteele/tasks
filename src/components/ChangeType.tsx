@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, TabPane } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { QuestionType } from "../interfaces/question";
 
 export function ChangeType(): JSX.Element {
