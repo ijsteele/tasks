@@ -3,7 +3,6 @@ import { Button } from "react-bootstrap";
 
 export function CycleHoliday(): JSX.Element {
     const [holiday, theDay] = useState<string>("🎆");
-    const [name, namer] = useState<string>("Independence Day");
     const alpha = ["🍇", "🎄", "🎃", "🎆", "🎊"];
     const time = ["🎊", "🍇", "🎆", "🎃", "🎄"];
 
