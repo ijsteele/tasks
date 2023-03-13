@@ -1,6 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { StartAttempt } from "./components/StartAttempt";
+import { TwoDice } from "./components/TwoDice";
+import { CycleHoliday } from "./components/CycleHoliday";
+import { Counter } from "./components/Counter";
 
 function App(): JSX.Element {
     return (
@@ -8,30 +13,18 @@ function App(): JSX.Element {
             <header className="App-header">
                 Ian Steele UD CISC275 with React Hooks and TypeScript
             </header>
-            <h1>Hejjj</h1>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. Hello World
-            </p>
-            <Button onClick={() => console.log("Hello World!")}>
-                Log Hello World
-            </Button>
-            <Container>
-                <Row>
-                    <Col className="col">Hej</Col>
-                    <Col className="col">
-                        <img
-                            src="https://i.kym-cdn.com/photos/images/masonry/002/363/364/447.png"
-                            alt="It's over"
-                        />
-                    </Col>
-                </Row>
-            </Container>
-            <ul>
-                <li>I</li>
-                <li>Hate</li>
-                <li>School</li>
-            </ul>
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <StartAttempt></StartAttempt>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
+            <hr />
+            <CycleHoliday></CycleHoliday>
         </div>
     );
 }
