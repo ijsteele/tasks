@@ -14,18 +14,22 @@ export function ChooseTeam(): JSX.Element {
     const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
     const [team, setTeam] = useState<string[]>([]);
 
-    function chooseMember() {
-        /*
-        if (!team.includes(newMember)) {
-            team.push(newMember);
+    function chooseMember(opt: string) {
+        if (!team.includes(opt)) {
+            setTeam([...team, opt]);
         }
-        */
     }
 
     function clearTeam() {
-        /*
-        team = [];
-        */
+        setTeam([]);
+        setAllOptions([
+            "Alan Turing",
+            "Grace Hopper",
+            "Ada Lovelace",
+            "Charles Babbage",
+            "Barbara Liskov",
+            "Margaret Hamilton"
+        ]);
     }
 
     return (
@@ -36,7 +40,10 @@ export function ChooseTeam(): JSX.Element {
                     {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
-                            <Button onClick={chooseMember} size="sm">
+                            <Button
+                                onClick={() => chooseMember(option)}
+                                size="sm"
+                            >
                                 {option}
                             </Button>
                         </div>
