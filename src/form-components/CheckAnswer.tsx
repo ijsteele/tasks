@@ -14,6 +14,7 @@ export function CheckAnswer({
 
     return (
         <div>
+            <h3>Check Answer</h3>
             <Form.Group>
                 <Form.Label>Check Answer</Form.Label>
                 <Form.Control

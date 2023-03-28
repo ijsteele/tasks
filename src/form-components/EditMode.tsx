@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 export function EditMode(): JSX.Element {
     const [mode, setMode] = useState<boolean>(false);
@@ -20,9 +20,10 @@ export function EditMode(): JSX.Element {
 
     return (
         <div>
+            <h3>Edit Mode</h3>
             <Form.Check
                 type="switch"
-                label="Edit Mode"
+                label={mode ? "Edit Mode" : "Normal Mode"}
                 checked={mode}
                 onChange={updateMode}
             />
